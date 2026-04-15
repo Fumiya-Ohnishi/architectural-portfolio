@@ -8,8 +8,11 @@ type SvgStyle = CSSProperties & Record<`--${string}`, string>
 export const Hero = () => {
   const [mounted, setMounted] = useState(false)
   useEffect(() => {
-    const t = setTimeout(() => setMounted(true), 100)
-    return () => clearTimeout(t)
+    // rAF x2 でペイント後にクラスを付与し、アニメーションを確実に起動
+    let id: number
+    const kick = () => { id = requestAnimationFrame(() => setMounted(true)) }
+    id = requestAnimationFrame(kick)
+    return () => cancelAnimationFrame(id)
   }, [])
 
   return (
