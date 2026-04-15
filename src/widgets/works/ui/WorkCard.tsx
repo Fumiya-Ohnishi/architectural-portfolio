@@ -1,8 +1,7 @@
-import type { ReactNode, CSSProperties } from 'react'
+import type { ReactNode } from 'react'
 import type { Project } from '@/entities/project'
 import styles from './WorkCard.module.css'
 
-type SvgStyle = CSSProperties & Record<`--${string}`, string>
 
 interface Props {
   project: Project
