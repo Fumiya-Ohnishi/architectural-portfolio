@@ -1,0 +1,37 @@
+.root {
+  margin-bottom: clamp(48px, 6vw, 80px);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-bronze);
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--c-text);
+  letter-spacing: -0.01em;
+}
+
+.titleEn {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--c-text-subtle);
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.light .title {
+  color: #FFFFFF;
+}
+.light .titleEn {
+  color: rgba(255,255,255,0.4);
+}

@@ -1,0 +1,106 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 28px 0;
+  transition: background 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease;
+}
+.header.scrolled {
+  padding: 16px 0;
+  background: rgba(247, 245, 240, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--c-border-light);
+}
+
+.inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.logoMark { color: var(--c-text); }
+.logoText {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  color: var(--c-text);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+.navItem {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: var(--c-text-muted);
+  transition: color 0.2s ease;
+  position: relative;
+}
+.navItem::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--c-bronze);
+  transition: width 0.3s ease;
+}
+.navItem:hover { color: var(--c-text); }
+.navItem:hover::after { width: 100%; }
+
+.menuBtn {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px;
+}
+.menuBtn span {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--c-text);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+.menuBtnOpen span:first-child { transform: rotate(45deg) translate(5px, 5px); }
+.menuBtnOpen span:last-child  { transform: rotate(-45deg) translate(5px, -5px); }
+
+@media (max-width: 768px) {
+  .menuBtn { display: flex; }
+  .nav {
+    position: fixed;
+    inset: 0;
+    background: var(--c-bg);
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+  }
+  .navOpen {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .navItem {
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
+  }
+}
